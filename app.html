@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <meta name="theme-color" content="#0F0F0F">
+    <script src="index.js"></script>
+    <link rel="icon" href="images/icon.png">
+    <title>Paralax</title>
+</head>
+<body>
+    <header>
+        <h1 class="slogon1">Paralax</h1>
+        <div id="topnav">
+            <nav class="top_nav_bar">
+                <a href="index.html">Home</a>
+                <a href="https://github.com/7AXEL/PARALAX">About</a>
+                <a href="app.html">Try</a>
+            </nav>
+        </div>
+        <h3 id="open_btn" onclick="open_side_nav()" hidden>&#9776;</h3>
+        <div id="sidenav" hidden>
+            <h3 onclick="close_side_nav()">&#x2715;</h3>
+            <nav class="side_nav_bar">
+                <a href="index.html">Home</a><br>
+                <a href="https://github.com/7AXEL/PARALAX">About</a><br>
+                <a href="app.html">Try</a>
+            </nav>
+        </div>
+    </header>
+    <section>
+        <center>
+            <div class="app_box">
+                <label class="label-file" for="fileInput">Choose a File</label>
+                <input type="file" id="fileInput" accept="image/*" hidden><br>
+                <div id="output-container">
+                    <canvas id="enhancedCanvas"></canvas><br>
+                    <button class="down_btn" onclick="downloadImage()">Download</button>
+                </div>
+            </div>
+        </center>
+    </section>
+    <script>
+        document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const enhancedCanvas = document.getElementById('enhancedCanvas');
+                    const enhancedCtx = enhancedCanvas.getContext('2d');
+                    const img = new Image();
+                    img.src = e.target.result;
+                    img.onload = function () {
+                        // Set canvas width and height to match the image
+                        enhancedCanvas.width = img.width;
+                        enhancedCanvas.height = img.height;
+
+                        // Clear canvas and draw the enhanced image
+                        enhancedCtx.clearRect(0, 0, enhancedCanvas.width, enhancedCanvas.height);
+                        enhanceColors(enhancedCtx, img, img.width, img.height);
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function enhanceColors(ctx, img, width, height) {
+            ctx.drawImage(img, 0, 0, width, height);
+            const imageData = ctx.getImageData(0, 0, width, height);
+            const data = imageData.data;
+            const saturationFactor = 2;
+            for (let i = 0; i < data.length; i += 4) {
+                const r = data[i];
+                const g = data[i + 1];
+                const b = data[i + 2];
+                const gray = 0.299 * r + 0.587 * g + 0.114 * b;
+                data[i] = gray + saturationFactor * (r - gray);
+                data[i + 1] = gray + saturationFactor * (g - gray);
+                data[i + 2] = gray + saturationFactor * (b - gray);
+            }
+            ctx.putImageData(imageData, 0, 0);
+        }
+
+        function downloadImage() {
+            const enhancedCanvas = document.getElementById('enhancedCanvas');
+            const link = document.createElement('a');
+            link.href = enhancedCanvas.toDataURL();
+            link.download = 'enhanced_image.png';
+            link.click();
+        }
+    </script>
+    <footer style="height: 50%">
+            <div class="footer_box">
+                <h2>Find us</h2>
+                <p>Connect with us effortlessly through those links, where personalized assistance awaits to enhance your experience with Paralax.</p>
+                <a href="mailto:galaxysea777@gmail.com">✉ Gmail</a>
+            </div>
+    </footer>
+</body>
+</html>

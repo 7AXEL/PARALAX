@@ -1,0 +1,304 @@
+@font-face {
+    font-family: Poppins;
+    src: url("fonts/poppins.ttf")
+}
+
+@font-face {
+    font-family: Tajawal;
+    src: url("fonts/tajawal.ttf")
+}
+
+::-webkit-scrollbar {
+    width: 12px; 
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(360deg, #0F0F0F,  #265147);
+}
+
+::-webkit-scrollbar-track {
+    background-color: #F0F0F0; 
+}
+
+* {
+    font-family: "Tajawal";
+    user-select: none
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    scroll-behavior: smooth;
+    background-image: url("images/bg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-image: url("images/bg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    animation: background_animation 1s alternate;
+}
+
+section {min-height: 85%}
+
+@keyframes background_animation {
+    from {background-position: -1000vh}
+    to {background-position: center}
+}
+
+.slogon1 {
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 5px;
+    background: linear-gradient(0deg, white, white, green);
+    -webkit-background-clip: text;
+    color: transparent
+}
+
+#topnav {
+    float: right;
+    display: inline-block;
+    color: white;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+#topnav a {
+    text-decoration: none;
+    padding: 0 10px;
+    cursor: pointer;
+    display: inline-block;
+    transform-origin: center;
+    transition: transform 0.1s ease-in-out;
+    color: white;
+}
+
+#topnav a:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    width: 100%;
+    height: 25%;
+    background-color: black;
+    filter: blur();
+    margin-top: 200px
+}
+
+.section_box {margin-left: 50px}
+
+.slogon2 {
+    background: linear-gradient(0deg, white, white, white);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 40px;
+}
+
+.discription {
+    color: white;
+    width: 500px;
+}
+
+.get_started_button {
+    background-image: linear-gradient(100deg, green, white);
+    text-decoration: none;
+    color: black;
+    border: 0px solid #00000000;
+    border-radius: 10px;
+    padding: 3px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    transform-origin: center;
+    transition: transform 0.1s ease-in-out;
+    margin-left: 10px;
+}
+
+.get_started_button:hover {
+    transform: scale(1.1)
+}
+
+.exemple {
+    margin-top: 40px;
+    background: linear-gradient(0deg, white, white, white);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-left: 5%
+}
+
+.exemple_box {
+    width: 80%;
+    height: 400px;
+    background-color: black;
+    opacity: 90%;
+    filter: blur();
+    border: 0px solid #00000000;
+    border-radius: 10px;
+    margin-left: 10%;
+    margin-top: 30px;
+    box-shadow: 0 10px 10px #0F0F0F;
+}
+
+.exemple_box h2 {
+    text-align: center;
+    margin-top: 45%;
+    font-family: "Poppins";
+    color: #0F0F0F;
+    background-image: linear-gradient(90deg, white, lightblue);
+    border: 0px solid #00000000;
+    border-radius: 10px;
+    width: 100px;
+    opacity: 80%
+}
+
+.div1 {
+    float: left;
+    min-width: 50%;
+    height: 400px;
+    background-image: url("images/before.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.div2 {
+    float: right;
+    min-width: 50%;
+    height: 400px;
+    background-image: url("images/after.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.footer_box {
+    background: linear-gradient(0deg, white, white, white);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-left: 20px;
+}
+
+footer p {
+    margin-top: -20px;
+    width: 500px;
+}
+
+footer a {
+    color: white;
+    margin-top: -30px;
+}
+
+#sidenav {
+    width: 150px;
+    min-height: 100%;
+    position: fixed;
+    z-index: 1000;
+    background-color: black;
+    display: none;
+    color: white;
+    text-align: center;
+    right: 0;
+}
+
+#sidenav nav {
+    margin-top: 60px;
+}
+
+#sidenav h3 {
+    color: white;
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+#open_btn {
+    color: white;
+    float: right;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+#sidenav a {
+    text-decoration: none;
+    padding: 0 10px;
+    cursor: pointer;
+    display: inline-block;
+    transform-origin: center;
+    transition: transform 0.1s ease-in-out;
+}
+
+#sidenav a:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 500px) {
+    #topnav {display: none}
+    #open_btn {display: inline-block}
+    .slogon2 {font-size: 30px}
+    .discription {width: 200px}
+    .exemple_box {width: 80%}
+    .footer_box {padding: 5px}
+    footer {height: 33%}
+    footer p {width: 200px}
+}
+
+.app_box {
+    width: 60%;
+    background-color: #F0F0F0;
+    height: 400px;
+    border: 0px solid #00000000;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px #0F0F0F
+}
+
+.label-file {
+    border: 0px solid #00000000;
+    border-radius: 10px;
+    background-color: darkcyan;
+    color: white;
+    padding: 5px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+#fileInput:not([disabled]):focus + .label-file,
+#fileInput:not([disabled]):hover + .label-file {
+  background-color: #2980b9;
+}
+
+#enhancedCanvas {
+    width: 90%;
+    height: 300px;
+    border: 2px solid darkcyan;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: white;
+}
+
+.down_btn {
+    border: 0px solid #00000000;
+    border-radius: 10px;
+    background-color: darkcyan;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+}
