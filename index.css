@@ -226,6 +226,7 @@ footer a {
     float: right;
     margin-top: 5px;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 #open_btn {
@@ -233,6 +234,7 @@ footer a {
     float: right;
     margin-top: 15px;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 #sidenav a {
@@ -244,7 +246,7 @@ footer a {
     transform-origin: center;
     transition: transform 0.1s ease-in-out;
     font-size: 20px;
-    padding-bottom: 10px
+    padding-bottom: 10px;
 }
 
 #sidenav a:hover {
