@@ -236,12 +236,15 @@ footer a {
 }
 
 #sidenav a {
+    color: white;
     text-decoration: none;
     padding: 0 10px;
     cursor: pointer;
     display: inline-block;
     transform-origin: center;
     transition: transform 0.1s ease-in-out;
+    font-size: 20px;
+    padding-bottom: 10px
 }
 
 #sidenav a:hover {
